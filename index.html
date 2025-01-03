@@ -13,6 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -368,8 +369,11 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+                        <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="criarRelatorios">
+                            <i class="fas fa-file-signature fa-sm text-white-50"></i> Criar Relatório
+                        </button>
+                        
+
                     </div>
 
                     <!-- Content Row -->
@@ -565,26 +569,147 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
+<!-- Modal de Criar Relatório -->
+<div class="modal fade" id="criarRelatorioModal" tabindex="-1" aria-labelledby="criarRelatorioModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="criarRelatorioModalLabel">Cadastro e Acompanhamento Social</h5>
+                <!-- Botão de Fechar (X) -->
+ 
+            </div>
+            <div class="modal-body">
+                <form id="criarRelatorioForm">
+                    <!-- Informações Pessoais -->
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cpf" class="form-label">CPF</label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Digite o CPF" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="rg" class="form-label">RG</label>
+                        <input type="text" class="form-control" id="rg" name="rg" placeholder="Digite o RG" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="endereco" class="form-label">Endereço</label>
+                        <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Digite o endereço" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Digite o telefone" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Digite o e-mail" required>
+                    </div>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
+                    <!-- Informações Sociais Relevantes -->
+                    <h5>Informações Sociais Relevantes</h5>
+                    <div class="mb-3">
+                        <label for="rendaFamiliar" class="form-label">Renda Familiar</label>
+                        <input type="text" class="form-control" id="rendaFamiliar" name="rendaFamiliar" placeholder="Digite a renda familiar" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="composicaoFamiliar" class="form-label">Composição Familiar</label>
+                        <input type="text" class="form-control" id="composicaoFamiliar" name="composicaoFamiliar" placeholder="Digite a composição familiar" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="beneficios" class="form-label">Benefícios Recebidos</label>
+                        <input type="text" class="form-control" id="beneficios" name="beneficios" placeholder="Ex: Bolsa Família" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="situacaoHabitacional" class="form-label">Situação Habitacional</label>
+                        <input type="text" class="form-control" id="situacaoHabitacional" name="situacaoHabitacional" placeholder="Digite a situação habitacional" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nivelEscolaridade" class="form-label">Nível de Escolaridade</label>
+                        <input type="text" class="form-control" id="nivelEscolaridade" name="nivelEscolaridade" placeholder="Digite o nível de escolaridade" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="situacaoEmprego" class="form-label">Situação de Emprego</label>
+                        <input type="text" class="form-control" id="situacaoEmprego" name="situacaoEmprego" placeholder="Digite a situação de emprego" required>
+                    </div>
+
+                    <!-- Histórico de Interações -->
+                    <h5>Histórico de Interações</h5>
+                    <div class="mb-3">
+                        <label for="historicoAtendimentos" class="form-label">Histórico de Atendimentos</label>
+                        <textarea class="form-control" id="historicoAtendimentos" name="historicoAtendimentos" rows="3" placeholder="Registro de atendimentos anteriores" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="notasAssistentes" class="form-label">Notas das Assistentes Sociais</label>
+                        <textarea class="form-control" id="notasAssistentes" name="notasAssistentes" rows="3" placeholder="Notas e observações das assistentes sociais" required></textarea>
+                    </div>
+
+                    <!-- Upload de Documentos -->
+                    <h5>Upload de Documentos</h5>
+                    <div class="mb-3">
+                        <label for="comprovanteRenda" class="form-label">Comprovante de Renda</label>
+                        <input type="file" class="form-control" id="comprovanteRenda" name="comprovanteRenda" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comprovanteResidencia" class="form-label">Comprovante de Residência</label>
+                        <input type="file" class="form-control" id="comprovanteResidencia" name="comprovanteResidencia" required>
+                    </div>
+
+                    <!-- Relatórios e Estatísticas -->
+                    <h5>Relatórios e Estatísticas</h5>
+                    <div class="mb-3">
+                        <label for="relatorioEstatisticas" class="form-label">Geração de Relatórios</label>
+                        <textarea class="form-control" id="relatorioEstatisticas" name="relatorioEstatisticas" rows="3" placeholder="Gerar relatórios sobre atendimentos, perfil dos atendidos" required></textarea>
+                    </div>
+
+                    <!-- Acompanhamento de Casos -->
+                    <h5>Acompanhamento de Casos</h5>
+                    <div class="mb-3">
+                        <label for="agendamentoVisitas" class="form-label">Agendamento de Visitas/Reuniões</label>
+                        <input type="date" class="form-control" id="agendamentoVisitas" name="agendamentoVisitas" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="alertasPrioritarios" class="form-label">Alertas para Casos Prioritários</label>
+                        <textarea class="form-control" id="alertasPrioritarios" name="alertasPrioritarios" rows="3" placeholder="Descreva alertas para casos prioritários ou pendências" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Salvar Informações</button>
+                </form>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Botão para abrir o modal -->
+<button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="criarRelatorio">
+    <i class="fas fa-file-signature fa-sm text-white-50"></i> Cadastro e Acompanhamento Social
+</button>
+
+<!-- Script para exibir o modal ao clicar no botão -->
+<script>
+    document.getElementById('criarRelatorios').addEventListener('click', function () {
+        // Exibir o modal de Cadastro e Acompanhamento Social
+        var myModal = new bootstrap.Modal(document.getElementById('criarRelatorioModal'));
+        myModal.show();
+    });
+
+    // Função para fechar o modal manualmente
+    function fecharModal() {
+        var myModal = bootstrap.Modal.getInstance(document.getElementById('criarRelatorioModal'));
+        myModal.hide();  // Força o fechamento do modal
+    }
+
+    // Adicionar event listener ao botão de fechar (X)
+    document.getElementById('closebtn').addEventListener('click', function () {
+        fecharModal();  // Chama a função para fechar o modal
+    });
+</script>
+
+<!-- Incluindo os scripts do Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Incluindo os scripts do Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
