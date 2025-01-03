@@ -379,16 +379,14 @@
 
                     <!-- Content Row -->
                     <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total de Beneficiários</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">400</div>
+                                                Relatórios Criados</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-relatorios">Carregando...</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -488,10 +486,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title">Total de Relatórios Criados</h5>
-                                        <p class="card-text" id="total-relatorios">Carregando...</p>
-                                    </div>
+                                 
                                 </div>
                                 
                                 <script>
@@ -506,6 +501,7 @@
                                                 } else if (data.error) {
                                                     // Caso haja erro, exibe a mensagem
                                                     document.getElementById('total-relatorios').textContent = 'Erro: ' + data.error;
+                                                    console.log(data);
                                                 }
                                             })
                                             .catch(error => {
@@ -711,39 +707,78 @@
 </div>
 
 <!-- Botão para abrir o modal -->
-
-
-<!-- Script para exibir o modal ao clicar no botão -->
 <script>
     document.getElementById('criarRelatorios').addEventListener('click', function () {
         // Exibir o modal de Cadastro e Acompanhamento Social
         var myModal = new bootstrap.Modal(document.getElementById('criarRelatorioModal'));
         myModal.show();
     });
- 
-    // Função para carregar o total de relatórios
-    function carregarTotalRelatorios() {
-        fetch('./system/get_total_relatorios.php') // Requisição ao arquivo PHP
-            .then(response => response.json()) // Recebe a resposta em formato JSON
-            .then(data => {
-                if (data.totalRelatorios !== undefined) {
-                    // Atualiza o texto no card com o total de relatórios
-                    document.getElementById('total-relatorios').textContent = data.totalRelatorios + ' Relatórios';
-                } else if (data.error) {
-                    // Caso haja erro, exibe a mensagem
-                    document.getElementById('total-relatorios').textContent = 'Erro: ' + data.error;
-                }
-            })
-            .catch(error => {
-                // Exibe erro caso a requisição falhe
-                document.getElementById('total-relatorios').textContent = 'Erro ao carregar dados.';
-            });
+
+    // Função para fechar o modal manualmente
+    function fecharModal() {
+        var myModal = bootstrap.Modal.getInstance(document.getElementById('criarRelatorioModal'));
+        myModal.hide();  // Força o fechamento do modal
     }
 
-    // Carregar o total de relatórios assim que a página for carregada
-    window.onload = carregarTotalRelatorios;
+    // Adicionar event listener ao botão de fechar (X)
+    document.getElementById('closebtn').addEventListener('click', function () {
+        fecharModal();  // Chama a função para fechar o modal
+    });
+</script>
 
+<!-- Script para exibir o modal ao clicar no botão -->
+<script>
+// Função para carregar o total de relatórios
+function carregarTotalRelatorios() {
+    fetch('./system/get_total_relatorios.php') // Requisição ao arquivo PHP
+        .then(response => {
+            if (!response.ok) {
+                // Lança um erro caso a resposta do servidor não seja "ok"
+                throw new Error('Erro na resposta do servidor: ' + response.statusText);
+            }
+            return response.json(); // Converte a resposta para JSON
+        })
+        .then(data => {
+            console.log('Dados recebidos:', data); // Exibe os dados no console para depuração
+            if (data.totalRelatorios !== undefined) {
+                // Atualiza o texto no card com o total de relatórios
+                document.getElementById('total-relatorios').textContent = data.totalRelatorios + ' Relatórios';
+            } else if (data.error) {
+                // Caso haja erro, exibe a mensagem
+                document.getElementById('total-relatorios').textContent = 'Erro: ' + data.error;
+            }
+        })
+        .catch(error => {
+            // Exibe erro caso a requisição falhe
+            console.error('Erro ao carregar dados:', error);
+            document.getElementById('total-relatorios').textContent = 'Erro ao carregar dados.';
+        });
+}
 
+// Carregar o total de relatórios assim que a página for carregada
+window.onload = carregarTotalRelatorios;
+
+document.getElementById('openModalBtn').addEventListener('click', function() {
+            const modal = new bootstrap.Modal(document.getElementById('criarRelatorioModal'));
+            modal.show();
+        });
+
+    document.getElementById('criarRelatorios').addEventListener('click', function () {
+        // Exibir o modal de Cadastro e Acompanhamento Social
+        var myModal = new bootstrap.Modal(document.getElementById('criarRelatorioModal'));
+        myModal.show();
+    });
+
+    // Função para fechar o modal manualmente
+    function fecharModal() {
+        var myModal = bootstrap.Modal.getInstance(document.getElementById('criarRelatorioModal'));
+        myModal.hide();  // Força o fechamento do modal
+    }
+
+    // Adicionar event listener ao botão de fechar (X)
+    document.getElementById('closebtn').addEventListener('click', function () {
+        fecharModal();  // Chama a função para fechar o modal
+    });
 </script>
 
 <!-- Incluindo os scripts do Bootstrap -->
