@@ -1,7 +1,7 @@
 CREATE TABLE PESSOA (
     id_pessoa INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
-    cpf VARCHAR(14) UNIQUE NOT NULL,
+    cpf VARCHAR(14) NOT NULL,
     rg VARCHAR(15) NOT NULL,
     endereco TEXT NOT NULL,
     telefone VARCHAR(20) NOT NULL,
@@ -17,12 +17,11 @@ CREATE TABLE PESSOA (
 CREATE TABLE RELATORIO (
     id_relatorio INT AUTO_INCREMENT PRIMARY KEY,
     pessoa_id INT NOT NULL,
-    historico_atendimentos TEXT,
-    notas_assistentes_social TEXT,
-    comprovante_renda BLOB,
-    comprovante_residencia BLOB,
-    geracao_relatorios TEXT,
-    agendamento_visitas DATE,
-    alertas_prioritarios TEXT,
-    FOREIGN KEY (pessoa_id) REFERENCES Pessoa(id)
+    motivo_relatorio VARCHAR(150),
+    observacoes VARCHAR(250),
+    comprovante_renda TEXT,
+    comprovante_residencia TEXT,
+    agendamento_visita DATE,
+    prioridade VARCHAR(8),
+    FOREIGN KEY (pessoa_id) REFERENCES PESSOA(id_pessoa)
 );

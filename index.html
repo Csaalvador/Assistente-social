@@ -34,8 +34,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-address-book"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Reports  </div>
             </a>
@@ -341,10 +341,7 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Configurações
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Registro de atividades
-                                </a>
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -367,8 +364,6 @@
                         <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" id="criarRelatorios">
                             <i class="fas fa-file-signature fa-sm text-white-50"></i> Criar Relatório
                         </button>
-                        
-
                     </div>
 
                     <!-- Content Row -->
@@ -383,7 +378,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-relatorios">Carregando...</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-file-signature fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -400,12 +395,15 @@
                                                 Atendimentos este mês</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">21</div>
                                         </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Earnings (Monthly) Card Example
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
@@ -432,30 +430,49 @@
                                     </div>
                                 </div>
                             </div>
+                        </div> -->
+
+                        <!-- Pending Requests Card Example -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Agendamentos Pendentes</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-agendamentos">
+                                                <!-- Total será atualizado aqui -->
+                                                Carregando...
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Pending Requests Card Example -->
-     <!-- Pending Requests Card Example -->
-<!-- Pending Requests Card Example -->
-<div class="col-xl-3 col-md-6 mb-4">
-    <div class="card border-left-warning shadow h-100 py-2">
-        <div class="card-body">
-            <div class="row no-gutters align-items-center">
-                <div class="col mr-2">
-                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                        Agendamentos Pendentes</div>
-                    <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-agendamentos">
-                        <!-- Total será atualizado aqui -->
-                        Carregando...
-                    </div>
-                </div>
-                <div class="col-auto">
-                    <i class="fas fa-comments fa-2x text-gray-300"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
+                                                Situações ㅤPrioritárias</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-agendamentos">
+                                                <!-- Total será atualizado aqui -->
+                                                4
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-exclamation-circle fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 <!-- Script para integrar com o endpoint -->
 <script>
@@ -610,8 +627,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="modal-header">
                 <h5 class="modal-title" id="criarRelatorioModalLabel">Cadastro e Acompanhamento Social</h5>
                 <!-- Botão de Fechar -->
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
+                <button id="btn-close" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form id="criarRelatorioForm" action="./system/processar_dados.php" method="POST">
