@@ -1,5 +1,5 @@
-CREATE TABLE CadastroAssistenteSocial (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE PESSOA (
+    id_pessoa INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     cpf VARCHAR(14) UNIQUE NOT NULL,
     rg VARCHAR(15) NOT NULL,
@@ -11,12 +11,18 @@ CREATE TABLE CadastroAssistenteSocial (
     beneficios_recebidos TEXT,
     situacao_habitacional TEXT NOT NULL,
     nivel_escolaridade VARCHAR(100) NOT NULL,
-    situacao_emprego TEXT NOT NULL,
+    situacao_emprego TEXT NOT NULL
+);
+
+CREATE TABLE RELATORIO (
+    id_relatorio INT AUTO_INCREMENT PRIMARY KEY,
+    pessoa_id INT NOT NULL,
     historico_atendimentos TEXT,
     notas_assistentes_social TEXT,
     comprovante_renda BLOB,
     comprovante_residencia BLOB,
     geracao_relatorios TEXT,
     agendamento_visitas DATE,
-    alertas_prioritarios TEXT
-)
+    alertas_prioritarios TEXT,
+    FOREIGN KEY (pessoa_id) REFERENCES Pessoa(id)
+);
