@@ -783,76 +783,130 @@ document.getElementById('criarRelatorios').addEventListener('click', function ()
  </script>
 
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    // Inicializa arrays e verifica se há dados no Local Storage
+<script>// Função para calcular a média das rendas
+    // Função para calcular a média das rendas
+function calcularMedia(rendas) {
+    const soma = rendas.reduce((acc, valor) => acc + valor, 0);
+    return rendas.length > 0 ? soma / rendas.length : 0;
+}
+
+// Função para carregar os dados do LocalStorage e atualizar o gráfico
+function carregarDados() {
+    // Pega os dados armazenados no LocalStorage
     const rendas = JSON.parse(localStorage.getItem("rendas")) || [];
-    const medias = JSON.parse(localStorage.getItem("medias")) || [];
     const labels = JSON.parse(localStorage.getItem("labels")) || [];
 
-    // Configuração inicial do gráfico
-    const ctx = document.getElementById("myAreaChart").getContext("2d");
-    const myAreaChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: labels,
-            datasets: [{
-                label: "Média da Renda Familiar (R$)",
-                data: medias, // Inicialmente vazio ou carregado do Local Storage
-                backgroundColor: "rgba(78, 115, 223, 0.1)",
-                borderColor: "rgba(78, 115, 223, 1)",
-                borderWidth: 2,
-                pointRadius: 3,
-                pointBackgroundColor: "rgba(78, 115, 223, 1)",
-                pointBorderColor: "rgba(78, 115, 223, 1)",
-                tension: 0.4, // Linhas suaves
-            }]
-        },
-        options: {
-            maintainAspectRatio: false,
-            scales: {
-                x: { grid: { display: false } },
-                y: {
-                    ticks: { beginAtZero: true },
-                    grid: { color: "rgba(234, 236, 244, 1)" },
-                }
-            },
-            plugins: {
-                legend: { display: true },
-            }
-        }
-    });
-
-    // Função para calcular a média
-    function calcularMedia() {
-        const soma = rendas.reduce((acc, valor) => acc + valor, 0);
-        return rendas.length > 0 ? soma / rendas.length : 0;
+    // Se não houver rendas (ou se os dados estiverem vazios), limpa o gráfico
+    if (rendas.length === 0) {
+        myAreaChart.data.labels = [];
+        myAreaChart.data.datasets[0].data = [];
+        myAreaChart.update();
+        return; // Retorna e não faz mais nada
     }
 
-    // Manipulador do formulário
-    // Manipulador do formulário
+    // Calcula a média progressiva das rendas
+    const medias = rendas.map((_, index) => calcularMedia(rendas.slice(0, index + 1)));
+
+    // Atualiza o gráfico com os dados do LocalStorage
+    myAreaChart.data.labels = labels;
+    myAreaChart.data.datasets[0].data = medias;
+    myAreaChart.update(); // Atualiza o gráfico
+}
+
+// Função para limpar todos os dados do LocalStorage e resetar o gráfico
+function limparTudo() {
+    localStorage.removeItem("rendas");
+    localStorage.removeItem("labels");
+
+    // Limpa o gráfico
+    myAreaChart.data.labels = [];
+    myAreaChart.data.datasets[0].data = [];
+    myAreaChart.update();
+}
+
+// Manipulador do formulário
 document.getElementById("criarRelatorioForm").addEventListener("submit", function (e) {
+    e.preventDefault(); // Impede o envio padrão do formulário para executar a lógica personalizada.
+
     // Captura o valor do campo "Renda Familiar"
     const rendaInput = document.getElementById("rendaFamiliar");
     const valorRenda = parseFloat(rendaInput.value);
 
     if (!isNaN(valorRenda) && valorRenda > 0) {
-        // Adiciona o valor ao array de rendas
+        // Pega os dados de rendas e labels do LocalStorage
+        let rendas = JSON.parse(localStorage.getItem("rendas")) || [];
+        let labels = JSON.parse(localStorage.getItem("labels")) || [];
+
+        // Adiciona o novo valor de renda
         rendas.push(valorRenda);
-        medias.push(calcularMedia());
-        labels.push('');
 
-        // Atualiza o gráfico
-        myAreaChart.update();
+        // Adiciona um novo label para o eixo X (com a data atual)
+        const dataAtual = new Date();
+        const mesAno = `${dataAtual.toLocaleString('pt-BR', { month: 'long' })} ${dataAtual.getFullYear()}`;
+        labels.push(mesAno);
 
-        // Armazena os dados no Local Storage
+        // Armazena os dados atualizados no LocalStorage
         localStorage.setItem("rendas", JSON.stringify(rendas));
-        localStorage.setItem("medias", JSON.stringify(medias));
         localStorage.setItem("labels", JSON.stringify(labels));
+
+        // Recarrega os dados e atualiza o gráfico
+        carregarDados();
+
+        // Limpa o campo de input após inserir o valor
+        rendaInput.value = '';
+
+        // Após a lógica, envie o formulário manualmente
+        e.target.submit();
     } else {
         alert("Por favor, insira um valor válido para a renda familiar.");
-        e.preventDefault(); // Impede o envio caso o valor seja inválido
     }
 });
+
+
+// Configuração inicial do gráfico
+const ctx = document.getElementById("myAreaChart").getContext("2d");
+const myAreaChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [], // Inicialmente vazio, será atualizado após carregar os dados
+        datasets: [{
+            label: "Média da Renda Familiar (R$)", // Texto do rótulo
+            data: [], // Inicialmente vazio, será preenchido após calcular a média
+            backgroundColor: "rgba(78, 115, 223, 0.1)",
+            borderColor: "rgba(78, 115, 223, 1)",
+            borderWidth: 2,
+            pointRadius: 3,
+            pointBackgroundColor: "rgba(78, 115, 223, 1)",
+            pointBorderColor: "rgba(78, 115, 223, 1)",
+            tension: 0.4, // Linhas suaves
+        }]
+    },
+    options: {
+        maintainAspectRatio: false,
+        scales: {
+            x: { 
+                display: false, // Remover os rótulos do eixo X
+                grid: { display: false } // Remover o grid do eixo X
+            },
+            y: {
+                ticks: { beginAtZero: true },
+                grid: { color: "rgba(234, 236, 244, 1)" },
+            }
+        },
+        plugins: {
+            legend: { 
+                display: true // Exibe a legenda
+            },
+            tooltip: { 
+                enabled: true // Exibe os tooltips
+            },
+        }
+    }
+});
+
+// Inicializa o gráfico com dados vazios (zerado) e aguarda os dados serem inseridos
+carregarDados();
+
 
 </script>
 
