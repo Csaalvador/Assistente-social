@@ -630,7 +630,6 @@ pre code {
     flex-wrap: wrap;
     margin-right: -.75rem;
     margin-left: -.75rem;
-    justify-content: center;
 }
 
 .no-gutters {
@@ -754,6 +753,10 @@ pre code {
 .row-cols-6>* {
     flex: 0 0 16.66667%;
     max-width: 16.66667%
+}
+
+.card .shadow .mb-4{
+    width: 102.5%;
 }
 
 .col-auto {
@@ -1424,8 +1427,8 @@ pre code {
     }
 
     .col-lg-7 {
-        flex: 0 0 58.33333%;
-        max-width: 58.33333%
+        flex: 0 0 100%;
+        max-width: 100%
     }
 
     .col-lg-8 {
@@ -1641,8 +1644,8 @@ pre code {
     }
 
     .col-xl-8 {
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%
+        flex: 0 0 100%;
+        max-width: 100%;
     }
 
     .col-xl-9 {
