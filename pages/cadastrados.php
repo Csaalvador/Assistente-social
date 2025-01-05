@@ -84,7 +84,7 @@ try {
 
             <!-- Nav Item - Relatórios -->
             <li class="nav-item active">
-                <a class="nav-link" href="relatorios.html">
+                <a class="nav-link" href="relatorios.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Relatórios</span></a>
             </li>
@@ -180,6 +180,7 @@ try {
                         </div>
                     </form>
 
+                    
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -314,6 +315,7 @@ try {
                 <div class="container-fluid">
 <!-- Page Heading --><div class="container mt-5">
     <h1 class="text-center mb-4 text-primary">Cadastrados</h1>
+    
     <div class="card shadow-sm border-0">
         <div class="card-body p-3">
             <table class="table table-sm table-hover">
