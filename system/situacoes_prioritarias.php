@@ -12,15 +12,15 @@ try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Consulta para contar os agendamentos do mês atual
-    $query = $conn->query('SELECT COUNT(agendamento_visitas) as total FROM cadastroassistentesocial WHERE agendamento_visitas IS NOT NULL AND MONTH(agendamento_visitas) = MONTH(CURRENT_DATE()) AND YEAR(agendamento_visitas) = YEAR(CURRENT_DATE())');
+    // Consulta para contar os alertas prioritários
+    $query = $conn->query('SELECT COUNT(alertas_prioritarios) as total FROM cadastroassistentesocial WHERE alertas_prioritarios IS NOT NULL AND alertas_prioritarios != ""');
     $result = $query->fetch(PDO::FETCH_ASSOC);
 
-    // Retorna o total de agendamentos no formato JSON
+    // Retorna o total de alertas prioritários no formato JSON
     if ($result && isset($result['total'])) {
-        echo json_encode(['totalVisitas' => $result['total']]);
+        echo json_encode(['totalAlertasPrioritarios' => $result['total']]);
     } else {
-        echo json_encode(['totalVisitas' => 0, 'error' => 'Nenhum dado encontrado']);
+        echo json_encode(['totalAlertasPrioritarios' => 0, 'error' => 'Nenhum dado encontrado']);
     }
 } catch (Exception $e) {
     // Retorna erro no formato JSON caso ocorra uma exceção

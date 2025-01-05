@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':id' => $_POST['id']
         ]);
 
-        header("Location: relatorios.php?msg=Relatório atualizado com sucesso!");
+        header("Location: ../pages/relatorios.php?msg=Relatório atualizado com sucesso!");
         exit();
     } catch (PDOException $e) {
         $error = "Erro ao atualizar o relatório: " . $e->getMessage();

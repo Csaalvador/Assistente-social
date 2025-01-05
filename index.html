@@ -370,6 +370,25 @@
                             </div>
                         </div>
 
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+    // Função para obter a data atual formatada
+                        function obterDataAtual() {
+                            const hoje = new Date();
+                            const dia = hoje.getDate().toString().padStart(2, '0'); // Dia com 2 dígitos
+                            const mes = (hoje.getMonth() + 1).toString().padStart(2, '0'); // Mês com 2 dígitos (0-indexado)
+                            const ano = hoje.getFullYear(); // Ano com 4 dígitos
+                            return `${dia}/${mes}/${ano}`;
+                        }
+
+                        // Atualiza o elemento no card com a data atual
+                        const elementoData = document.getElementById("currentDate");
+                        if (elementoData) {
+                            elementoData.textContent = `${obterDataAtual()}`;
+                        }
+});
+
+                            </script>
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
@@ -377,8 +396,10 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Pessoas cadastradas</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">0</div>
+                                                DATA</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="currentDate"></div>
+                                            <!-- Data Atual -->
+                                            <div class="text-xs text-gray-500 mt-2" ></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-user fa-2x text-gray-300"></i>
@@ -387,6 +408,7 @@
                                 </div>
                             </div>
                         </div>
+                        
 
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-warning shadow h-100 py-2">
@@ -397,7 +419,7 @@
                                                 Agendamentos Pendentes</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-agendamentos">
                                                 <!-- Total será atualizado aqui -->
-                                                0
+                                                Carregando...
                                             </div>
                                         </div>
                                         <div class="col-auto">
@@ -407,7 +429,39 @@
                                 </div>
                             </div>
                         </div>
-                                        
+                                        <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const carregarTotalRelatorios = async () => {
+                            try {
+                                const response = await fetch('./system/situacoes_prioritarias.php');
+                                if (!response.ok) {
+                                    throw new Error(`Erro HTTP! Status: ${response.status}`);
+                                }
+                                const data = await response.json();
+                                console.log('Resposta do endpoint:', data);
+
+                                // Agora acessando a chave correta do JSON
+                                if (data && data.totalAlertasPrioritarios !== undefined) {
+                                    const total = data.totalAlertasPrioritarios;
+                                    const totalElement = document.getElementById('prioritarias');
+                                    if (totalElement) {
+                                        totalElement.textContent = total || '0'; // Coloca '0' caso não tenha valor
+                                        console.log('Texto atualizado com sucesso');
+                                    } else {
+                                        console.error('Elemento com ID "prioritarias" não encontrado.');
+                                    }
+                                } else {
+                                    console.error('Valor não encontrado ou é undefined', data);
+                                }
+                            } catch (error) {
+                                console.error('Erro na requisição ou no processamento:', error);
+                            }
+                        };
+
+                        carregarTotalRelatorios();
+                    });
+
+                                        </script>
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-danger shadow h-100 py-2">
@@ -416,9 +470,10 @@
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                                                 Situações ㅤPrioritárias</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="total-agendamentos">
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800" id="prioritarias">
                                                 <!-- Total será atualizado aqui -->
-                                                0
+                                                Carregando...
+
                                             </div>
                                         </div>
                                         <div class="col-auto">
