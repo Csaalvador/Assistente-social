@@ -1427,8 +1427,8 @@ pre code {
     }
 
     .col-lg-7 {
-        flex: 0 0 100%;
-        max-width: 100%
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%
     }
 
     .col-lg-8 {
@@ -12106,13 +12106,13 @@ a:focus {
 }
 
 .bg-login-image {
-    background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800);
+    background: url(https://miro.medium.com/max/1400/1*e1mBVh1bm__U4-vlwa7sfg.jpeg);
     background-position: center;
     background-size: cover
 }
 
 .bg-register-image {
-    background: url(https://source.unsplash.com/Mv9hjnEUHR4/600x800);
+    background: url(https://morillosurielabogados.b-cdn.net/wp-content/uploads/2017/06/negocios-rentables-en-republica-dominicana.jpg);
     background-position: center;
     background-size: cover
 }
