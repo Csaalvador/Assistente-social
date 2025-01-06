@@ -98,7 +98,7 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
+                        <h6 class="collapse-header">Telas:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
                         <a class="collapse-item" href="cadastro.html">Cadastro</a>
                     </div>
@@ -469,7 +469,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                                                Situações ㅤPrioritárias</div>
+                                                Situações Prioritárias</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800" id="prioritarias">
                                                 <!-- Total será atualizado aqui -->
                                                 Carregando...
@@ -595,8 +595,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="modal-header">
                 <h5 class="modal-title" id="criarRelatorioModalLabel">Cadastro e Acompanhamento Social</h5>
                 <!-- Botão de Fechar -->
+<<<<<<< HEAD
                 <button id="btnVoltar" type="button" class="btn btn-secondary">Voltar</button>
 
+=======
+                <button type="button" id="btn-close" class="btn-close"></button>
+>>>>>>> 19fd625dae8f94cc49c98754f8eaad08fc6e6675
             </div>
             <div class="modal-body">
                 <form id="criarRelatorioForm" action="./system/processar_dados.php" method="POST">
@@ -737,7 +741,7 @@ function carregarTotalRelatorios() {
 }
 
 
-document.getElementById('criarRelatorios').addEventListener('click', function () {
+    document.getElementById('criarRelatorios').addEventListener('click', function () {
         // Exibir o modal de Cadastro e Acompanhamento Social
         var myModal = new bootstrap.Modal(document.getElementById('criarRelatorioModal'));
         myModal.show();
@@ -747,15 +751,10 @@ document.getElementById('criarRelatorios').addEventListener('click', function ()
     function fecharModal() {
         var myModal = bootstrap.Modal.getInstance(document.getElementById('criarRelatorioModal'));
         myModal.hide();  // Força o fechamento do modal
+        
     }
 
-    // Adicionar event listener ao botão de fechar (X)
-    document.getElementById('closebtn').addEventListener('click', function () {
-        fecharModal();  // Chama a função para fechar o modal
-    });
-
  </script>
-
  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>// Função para calcular a média das rendas
     // Função para calcular a média das rendas
