@@ -121,7 +121,7 @@ try {
 
             <!-- Nav Item - Relatórios -->
             <li class="nav-item active">
-                <a class="nav-link" href="relatorios.html">
+                <a class="nav-link" href="relatorios.php">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Relatórios</span></a>
             </li>
