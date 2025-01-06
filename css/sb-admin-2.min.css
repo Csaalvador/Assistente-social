@@ -6157,7 +6157,7 @@ a.badge-dark:focus {
 button.close {
     padding: 0;
     background-color: transparent;
-    border: 0
+    border: 0;
 }
 
 a.close.disabled {
