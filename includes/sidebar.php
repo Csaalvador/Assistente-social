@@ -53,6 +53,13 @@
         <span>Agendamentos</span></a>
     </li>
 
+        
+    <li class="nav-item <?php echo $current_page == 'situacoePrioritarias.php' ? 'active' : ''; ?>">
+        <a class="nav-link" href="../../Assistente-social/pages/alertasPrioritarios.php">
+        <i class="fas fa-exclamation-circle fa-2x text-gray-300"></i>
+        <span>Situações Prioritarias</span></a>
+    </li>
+
     <!-- Nav Item - Documentos -->
     <li class="nav-item <?php echo $current_page == 'documentos.php' ? 'active' : ''; ?>">
         <a class="nav-link" href="../../Assistente-social/pages/documentos.php">
