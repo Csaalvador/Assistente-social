@@ -1,3 +1,4 @@
+<!-- SIDEBAR -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Reports 2 - Dashboard</title>
+    <title>Reports 2</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,109 +30,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <i class="fas fa-address-book"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Reports  </div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Público
-            </div>
-
-            <!-- Nav Item - Cadastro -->
-            <li class="nav-item">
-                <a class="nav-link" href="./pages/cadastrados.php">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Cadastros</span></a>
-            </li>
-
-            
-
-            <!-- Nav Item - Relatórios -->
-            <li class="nav-item">
-                <a class="nav-link" href="pages/relatorios.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Relatórios</span></a>
-            </li>
-
-            <!-- Nav Item - Documentos -->
-            <li class="nav-item">
-                <a class="nav-link" href="pages/documentos.html">
-                    <i class="fas fa-fw fa-file"></i>
-                    <span>Documentos</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Sistema
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Configurações</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Telas:</h6>
-                        <a class="collapse-item" href="pages/login.html">Login</a>
-                        <a class="collapse-item" href="pages/cadastro.html">Cadastro</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-question-circle"></i>
-                    <span>Ajuda</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Perguntas frequentes:</h6>
-                        <a class="collapse-item" href="pages/help-como-funciona.html">Como funciona?</a>
-                        <a class="collapse-item" href="pages/help-como-cadastrar.html">Como cadastrar?</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
+        <?php include './includes/sidebar.php'; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -313,7 +212,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Assistente Social</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="../img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -705,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
 <script>
 
 document.getElementById("btnVoltar").addEventListener("click", () => {
-    window.location.href = 'index.html'; // Redireciona para index.php
+    window.location.href = 'index.php'; // Redireciona para index.php
 });
 
 // Função para carregar o total de relatórios

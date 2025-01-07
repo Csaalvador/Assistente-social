@@ -24,7 +24,7 @@ try {
     <title>Relatórios Cadastrados</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
@@ -88,77 +88,10 @@ try {
 </head>
 
 <body id="page-top">
+    
     <div id="wrapper">
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <i class="fas fa-address-book"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Reports</div>
-            </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item">
-                <a class="nav-link" href="../index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Público
-            </div>
-
-            <!-- Nav Item - Cadastro -->
-            <li class="nav-item">
-                <a class="nav-link" href="cadastrados.php">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Cadastros</span></a>
-            </li>
-
-            <!-- Nav Item - Relatórios -->
-            <li class="nav-item active">
-                <a class="nav-link" href="relatorios.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Relatórios</span></a>
-            </li>
-
-            <!-- Nav Item - Documentos -->
-            <li class="nav-item">
-                <a class="nav-link" href="documentos.html">
-                    <i class="fas fa-fw fa-file"></i>
-                    <span>Documentos</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Sistema
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Configurações</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="cadastro.html">Cadastro</a>
-                    </div>
-                </div>
-            </li>
-            <hr class="sidebar-divider">
-            
-        </ul>
+        <?php include '../includes/sidebar.php'; ?>
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -208,10 +141,10 @@ try {
             }
         }
     </script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 </body>
 
 </html>

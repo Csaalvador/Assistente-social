@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             ':agendamento_visitas' => $_POST['agendamentoVisitas'],
             ':alertas_prioritarios' => $_POST['alertasPrioritarios']
         ]);
-        header("Location: ../index.html");
+        header("Location: ../index.php");
 
         echo "Dados inseridos com sucesso!";
     } catch (PDOException $e) {

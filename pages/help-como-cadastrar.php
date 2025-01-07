@@ -9,11 +9,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Reports 2 - Charts</title>
+    <title>Reports 2</title>
 
     <!-- Custom fonts for this template-->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -28,107 +27,7 @@
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <i class="fas fa-address-book"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Reports  </div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="../index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Público
-            </div>
-
-            <!-- Nav Item - Cadastro -->
-            <li class="nav-item">
-                <a class="nav-link" href="cadastrados.php">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Cadastro</span></a>
-            </li>
-
-            <!-- Nav Item - Relatórios -->
-            <li class="nav-item">
-                <a class="nav-link" href="relatorios.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Relatórios</span></a>
-            </li>
-
-            <!-- Nav Item - Documentos -->
-            <li class="nav-item active">
-                <a class="nav-link" href="documentos.html">
-                    <i class="fas fa-fw fa-file"></i>
-                    <span>Documentos</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Sistema
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Configurações</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header"> Telas:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="cadastro.html">Cadastro</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-question-circle"></i>
-                    <span>Ajuda</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Perguntas frequentes:</h6>
-                        <a class="collapse-item" href="help-como-funciona.html">Como funciona?</a>
-                        <a class="collapse-item" href="help-como-cadastrar.html">Como cadastrar?</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
+        <?php include '../includes/sidebar.php'; ?>    
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -252,7 +151,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../img/undraw_profile_1.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -264,7 +163,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../img/undraw_profile_2.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -276,7 +175,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="../img/undraw_profile_3.svg"
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -338,30 +237,116 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <!DOCTYPE html>
+                <div class="container-fluid">
 
-    <style>
-        .centered-message {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-    </style>
-</head>
-    <div class="container">
-        <div class="centered-message">
-            <div>
-                <h1 class="text-primary">Aba de Documentos</h1>
-                <p class="lead">Esta funcionalidade será implementada em breve.</p>
-                <p>Fique atento para mais atualizações!</p>
-                <a href="../index.html" class="btn btn-secondary">Voltar para a página inicial</a>
-            </div>
-        </div>
-    </div>
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-1 text-gray-800">Border Utilities</h1>
+                    <p class="mb-4">Bootstrap's default utility classes can be found on the official <a
+                            href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities
+                        below were created to extend this theme past the default utility classes built into Bootstrap's
+                        framework.</p>
 
+                    <!-- Content Row -->
+                    <div class="row">
 
+                        <!-- Border Left Utilities -->
+                        <div class="col-lg-6">
+
+                            <div class="card mb-4 py-3 border-left-primary">
+                                <div class="card-body">
+                                    .border-left-primary
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-left-secondary">
+                                <div class="card-body">
+                                    .border-left-secondary
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-left-success">
+                                <div class="card-body">
+                                    .border-left-success
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-left-info">
+                                <div class="card-body">
+                                    .border-left-info
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-left-warning">
+                                <div class="card-body">
+                                    .border-left-warning
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-left-danger">
+                                <div class="card-body">
+                                    .border-left-danger
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-left-dark">
+                                <div class="card-body">
+                                    .border-left-dark
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Border Bottom Utilities -->
+                        <div class="col-lg-6">
+
+                            <div class="card mb-4 py-3 border-bottom-primary">
+                                <div class="card-body">
+                                    .border-bottom-primary
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-bottom-secondary">
+                                <div class="card-body">
+                                    .border-bottom-secondary
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-bottom-success">
+                                <div class="card-body">
+                                    .border-bottom-success
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-bottom-info">
+                                <div class="card-body">
+                                    .border-bottom-info
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-bottom-warning">
+                                <div class="card-body">
+                                    .border-bottom-warning
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-bottom-danger">
+                                <div class="card-body">
+                                    .border-bottom-danger
+                                </div>
+                            </div>
+
+                            <div class="card mb-4 py-3 border-bottom-dark">
+                                <div class="card-body">
+                                    .border-bottom-dark
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
@@ -416,14 +401,6 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../js/demo/chart-area-demo.js"></script>
-    <script src="../js/demo/chart-pie-demo.js"></script>
-    <script src="../js/demo/chart-bar-demo.js"></script>
 
 </body>
 

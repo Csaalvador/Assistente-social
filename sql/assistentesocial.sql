@@ -1,3 +1,7 @@
+CREATE DATABASE assistentesocial;
+
+USE assistentesocial;
+
 CREATE TABLE CadastroAssistenteSocial (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,

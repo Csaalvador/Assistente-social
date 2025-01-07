@@ -28,10 +28,10 @@ try {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Reports 2 - Charts</title>
+    <title>Reports 2</title>
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
@@ -46,112 +46,8 @@ try {
     <!-- Page Wrapper -->
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-            <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon">
-                    <i class="fas fa-address-book"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">Reports  </div>
-            </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="../index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Público
-            </div>
-
-            <!-- Nav Item - Cadastro -->
-            <li class="nav-item">
-                <a class="nav-link" href="cadastrados.php">
-                    <i class="fas fa-fw fa-user-plus"></i>
-                    <span>Cadastros</span></a>
-            </li>
-
-            <!-- Nav Item - Relatórios -->
-            <li class="nav-item active">
-                <a class="nav-link" href="relatorios.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Relatórios</span></a>
-            </li>
-
-            <!-- Nav Item - Documentos -->
-            <li class="nav-item">
-                <a class="nav-link" href="documentos.html">
-                    <i class="fas fa-fw fa-file"></i>
-                    <span>Documentos</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Sistema
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Configurações</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="cadastro.html">Cadastro</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-question-circle"></i>
-                    <span>Ajuda</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Perguntas frequentes:</h6>
-                        <a class="collapse-item" href="help-como-funciona.html">Como funciona?</a>
-                        <a class="collapse-item" href="help-como-cadastrar.html">Como cadastrar?</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-        </ul>
-        <!-- End of Sidebar -->
-
+        <?php include '../includes/sidebar.php'; ?>
+        
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -180,7 +76,6 @@ try {
                         </div>
                     </form>
 
-                    
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -209,15 +104,64 @@ try {
                         </li>
 
                         <!-- Nav Item - Alerts -->
-                       
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
                                 <!-- Counter - Alerts -->
-                              
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
                             <!-- Dropdown - Alerts -->
-                           
-                               
-                               
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
                         <!-- Nav Item - Messages -->
-                       
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
                             <!-- Dropdown - Messages -->
                             <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="messagesDropdown">
@@ -313,65 +257,67 @@ try {
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-<!-- Page Heading --><div class="container mt-5">
-    <h1 class="text-center mb-4 text-primary">Cadastrados</h1>
-    
-    <div class="card shadow-sm border-0">
-        <div class="card-body p-3">
-            <table class="table table-sm table-hover">
-                <thead>
-                    <tr class="text-muted">
-                        <th style="font-size: 0.9rem;">ID</th>
-                        <th style="font-size: 0.9rem;">Nome</th>
-                        <th style="font-size: 0.9rem;">CPF</th>
-                        <th style="font-size: 0.9rem;">Endereço</th>
-                        <th style="font-size: 0.9rem;">Benefícios</th>
-                        <th style="font-size: 0.9rem;">Escolaridade</th>
-                        <th style="font-size: 0.9rem;">Emprego</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php if (!empty($dadosRelatorio)): ?>
-                        <?php foreach ($dadosRelatorio as $dado): ?>
-                            <tr style="font-size: 0.85rem;">
-                                <td><?= htmlspecialchars($dado['id']) ?></td>
-                                <td><?= htmlspecialchars($dado['nome']) ?></td>
-                                <td><?= htmlspecialchars($dado['cpf']) ?></td>
-                                <td><?= htmlspecialchars($dado['endereco']) ?></td>
-                                <td><?= htmlspecialchars($dado['beneficios_recebidos']) ?></td>
-                                <td><?= htmlspecialchars($dado['nivel_escolaridade']) ?></td>
-                                <td><?= htmlspecialchars($dado['situacao_emprego']) ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    <?php else: ?>
-                        <tr>
-                            <td colspan="8" class="text-center text-muted" style="font-size: 0.85rem;">Nenhum registro encontrado</td>
-                        </tr>
-                    <?php endif; ?>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+            
+                    <!-- Page Heading -->
+                    <div class="container mt-5">
+                    <h1 class="text-center mb-4 text-primary">Cadastrados</h1>
+        
+                        <div class="card shadow-sm border-0">
+                            <div class="card-body p-3">
+                                <table class="table table-sm table-hover">
+                                    <thead>
+                                        <tr class="text-muted">
+                                            <th style="font-size: 0.9rem;">ID</th>
+                                            <th style="font-size: 0.9rem;">Nome</th>
+                                            <th style="font-size: 0.9rem;">CPF</th>
+                                            <th style="font-size: 0.9rem;">Endereço</th>
+                                            <th style="font-size: 0.9rem;">Benefícios</th>
+                                            <th style="font-size: 0.9rem;">Escolaridade</th>
+                                            <th style="font-size: 0.9rem;">Emprego</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (!empty($dadosRelatorio)): ?>
+                                            <?php foreach ($dadosRelatorio as $dado): ?>
+                                                <tr style="font-size: 0.85rem;">
+                                                    <td><?= htmlspecialchars($dado['id']) ?></td>
+                                                    <td><?= htmlspecialchars($dado['nome']) ?></td>
+                                                    <td><?= htmlspecialchars($dado['cpf']) ?></td>
+                                                    <td><?= htmlspecialchars($dado['endereco']) ?></td>
+                                                    <td><?= htmlspecialchars($dado['beneficios_recebidos']) ?></td>
+                                                    <td><?= htmlspecialchars($dado['nivel_escolaridade']) ?></td>
+                                                    <td><?= htmlspecialchars($dado['situacao_emprego']) ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <tr>
+                                                <td colspan="8" class="text-center text-muted" style="font-size: 0.85rem;">Nenhum registro encontrado</td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="../vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
+    <script src="../js/demo/chart-area-demo.js"></script>
+    <script src="../js/demo/chart-pie-demo.js"></script>
+    <script src="../js/demo/chart-bar-demo.js"></script>
 
 </body>
 
