@@ -45,6 +45,13 @@
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Relatórios</span></a>
     </li>
+    <!-- Nav Item - Pendentes -->
+     
+    <li class="nav-item <?php echo $current_page == 'agendamentos.php' ? 'active' : ''; ?>">
+        <a class="nav-link" href="../../Assistente-social/pages/agendamentos.php">
+        <i class="fas fa-comments fa-2x text-gray-300"></i>
+        <span>Agendamentos</span></a>
+    </li>
 
     <!-- Nav Item - Documentos -->
     <li class="nav-item <?php echo $current_page == 'documentos.php' ? 'active' : ''; ?>">
