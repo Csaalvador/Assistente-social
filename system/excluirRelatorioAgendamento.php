@@ -5,7 +5,8 @@ if (isset($_GET['id'])) {
     $id = intval($_GET['id']); // Sanitiza o ID
 
     try {
-        $sql = "DELETE FROM CadastroAssistenteSocial WHERE id = :id";
+        // Limpa o campo `agendamento_visitas` do registro correspondente
+        $sql = "UPDATE CadastroAssistenteSocial SET agendamento_visitas = NULL WHERE id = :id";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
@@ -23,3 +24,4 @@ if (isset($_GET['id'])) {
     header("Location: ../pages/agendamentos.php?status=erro&mensagem=ID inválido");
     exit;
 }
+?>
