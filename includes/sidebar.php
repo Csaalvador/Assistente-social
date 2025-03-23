@@ -102,8 +102,8 @@
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Perguntas frequentes:</h6>
-                <a class="collapse-item <?php echo $current_page == 'help-como-funciona.php' ? 'active' : ''; ?>" href="../../Assistente-social/pages/help-como-funciona.php">Como funciona?</a>
-                <a class="collapse-item <?php echo $current_page == 'help-como-cadastrar.php' ? 'active' : ''; ?>" href="../../Assistente-social/pages/help-como-cadastrar.php">Como cadastrar?</a>
+                <a class="collapse-item <?php echo $current_page == 'help-como-funciona.php' ? 'active' : ''; ?>" href="#">Como funciona?</a>
+                <a class="collapse-item <?php echo $current_page == 'help-como-cadastrar.php' ? 'active' : ''; ?>" href="#">Como cadastrar?</a>
             </div>
         </div>
     </li>
